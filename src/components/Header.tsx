@@ -13,7 +13,7 @@ export const Header = ({ query, setQuery }: HeaderProps) => {
         placeholder="Busca tu pokemon"
         type="text"
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={(e) => setQuery(e.target.value)} //todo: da error al escribir-----> REVISAR
       />
     </header>
   );
