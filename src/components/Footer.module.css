@@ -1,5 +1,23 @@
 footer {
-  height: 15vh;
+  height: 10vh;
   width: 100vw;
   background-color: rgb(168, 48, 48);
+  display: flex;
+  justify-content: space-around;
+
+  .footerLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    margin: 10px 0px;
+    font-size: 10px;
+    color: black;
+  }
+
+  .footerIcon {
+    width: 25px;
+    margin: 5px 0px;
+  }
 }

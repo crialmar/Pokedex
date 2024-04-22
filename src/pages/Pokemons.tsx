@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { Footer, Header } from "../components";
+import { Link } from "react-router-dom";
 
 export const Pokemons = () => {
-  const [query, setQuery] = useState("BULBASUR");
+  const [query, setQuery] = useState("");
   return (
     <>
       <Header query={query} setQuery={setQuery} />
       <main>
-        <h1>Pokemons</h1>
+        <nav>
+          <Link to="/"></Link> //todo
+        </nav>
       </main>
       <Footer />
     </>
