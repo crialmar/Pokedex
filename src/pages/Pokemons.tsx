@@ -7,12 +7,16 @@ import { Pokemon } from "../types/types";
 export const Pokemons = () => {
   const [query, setQuery] = useState("");
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
-  console.log("he entrado en pokemons");
+
   useEffect(() => {
     const fetchAllPokemons = async () => {
-      const allPokemons = await fetchPokemons();
-      console.log(allPokemons);
-      setPokemons(allPokemons);
+      try {
+        const allPokemons = await fetchPokemons();
+        console.log(allPokemons);
+        setPokemons(allPokemons);
+      } catch {
+        console.log("Error fetching pokemones: ", Error);
+      }
     };
     fetchAllPokemons();
   }, []);
@@ -22,7 +26,7 @@ export const Pokemons = () => {
       <Header query={query} setQuery={setQuery} />
       <main>
         <nav>
-          {pokemons?.slice(0, 151).map((pokemon) => {
+          {pokemons?.slice(0, 151).map((pokemon) => (
             <Link
               key={pokemon.id}
               className="pokemones"
@@ -37,8 +41,8 @@ export const Pokemons = () => {
                 <span>{pokemon.name}</span>
                 <span>{pokemon.id}</span>
               </div>
-            </Link>;
-          })}
+            </Link>
+          ))}
         </nav>
       </main>
       <Footer />
